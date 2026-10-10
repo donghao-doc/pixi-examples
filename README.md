@@ -69,7 +69,14 @@ import App from '@/App'
 
 ### 资源加载
 
-`src/pages/loader-loading` 参考 `LoaderLoading.vue`，使用 Pixi.js 8 的 `Assets.load` 回调展示真实加载进度、百分比和已加载资源数量。资源清单由 `src/assets/frame-animation.ts` 统一维护，与序列帧动画共用现有的 138 张本地图片，不额外加载参考页仅用于文字样式的远程字体。
+`src/pages/loader-loading` 参考 `LoaderLoading.vue`，使用 Pixi.js 8 的 `Assets.load` 回调展示真实加载进度、百分比和已加载资源数量。图片清单由 `src/assets/frame-animation.ts` 统一维护，与序列帧动画共用现有的 138 张本地图片，另加载 1 个远程中文字体，共 139 个资源。
+
+加载页采用开源字体「站酷小薇体（ZCOOL XiaoWei）」，通过 Pixi 的 `data.family` 注册为 `ZCOOL XiaoWei` 并应用于加载状态文字，无需额外声明 `@font-face` 或安装字体依赖。字体使用 Fontsource 5.3.0 提供的 WOFF2 简体中文子集，约 2.1 MiB；未加载或未覆盖的字符使用系统衬线字体。字体与图片均计入加载进度，远程字体失败时会显示加载失败并允许重试，因此首次加载时间受 CDN 和网络状况影响。
+
+- [远程字体文件（固定版本）](https://cdn.jsdelivr.net/npm/@fontsource/zcool-xiaowei@5.3.0/files/zcool-xiaowei-chinese-simplified-400-normal.woff2)
+- [Google Fonts 官方字体目录](https://github.com/google/fonts/tree/main/ofl/zcoolxiaowei)
+- [官方 SIL Open Font License 1.1](https://github.com/google/fonts/blob/main/ofl/zcoolxiaowei/OFL.txt)
+- 完整版权声明和许可副本保存在 `licenses/ZCOOL-XiaoWei-OFL.txt`
 
 每批加载 8 个资源，进度按加载完成的文件数统计，不代表下载字节比例。全部完成后可进入序列帧动画页；失败时保留当前进度并提供重试。离开页面后忽略进行中的回调并停止后续批次，已加载资源保留在 Pixi 共享缓存中，重试或再次进入时可能很快完成。
 

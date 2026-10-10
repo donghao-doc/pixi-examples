@@ -1,10 +1,22 @@
 import { Assets } from 'pixi.js'
+import type { UnresolvedAsset } from 'pixi.js'
 import { FRAME_ANIMATION_ASSETS } from '@/assets/frame-animation'
 
-const resources = [
-  ...FRAME_ANIMATION_ASSETS.pool,
-  ...FRAME_ANIMATION_ASSETS.icon,
-  ...FRAME_ANIMATION_ASSETS.coin,
+// 固定 Fontsource 版本；字体使用 OFL 1.1，完整许可保存在 licenses 目录
+const resources: UnresolvedAsset[] = [
+  {
+    src: 'https://cdn.jsdelivr.net/npm/@fontsource/zcool-xiaowei@5.3.0/files/zcool-xiaowei-chinese-simplified-400-normal.woff2',
+    data: {
+      family: 'ZCOOL XiaoWei',
+      weights: ['400'],
+      display: 'swap',
+    },
+  },
+  ...[
+    ...FRAME_ANIMATION_ASSETS.pool,
+    ...FRAME_ANIMATION_ASSETS.icon,
+    ...FRAME_ANIMATION_ASSETS.coin,
+  ].map((src) => ({ src })),
 ]
 const BATCH_SIZE = 8
 
@@ -20,7 +32,7 @@ interface LoadingOptions {
 }
 
 /**
- * 使用 Pixi Assets 分批预加载动画资源，并汇总每批真实加载进度
+ * 使用 Pixi Assets 分批预加载远程字体与动画图片，并汇总每批真实加载进度
  * 复用共享缓存；取消时不卸载纹理，避免影响动画页面和其他加载实例
  */
 export async function loadLoadingResources({ signal, onProgress }: LoadingOptions) {
