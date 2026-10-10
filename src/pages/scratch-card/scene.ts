@@ -36,8 +36,6 @@ interface SceneOptions {
 export interface ScratchCardScene {
   /** 恢复覆盖层并清空刮擦记录 */
   reset: () => void
-  /** 直接揭示内容，供键盘和辅助技术使用 */
-  reveal: () => void
   /** 移除监听器并释放画布、GPU 纹理与绘图资源 */
   destroy: () => void
 }
@@ -314,5 +312,5 @@ export async function createScratchCardScene({
     app.destroy(true, { children: true, context: true })
   }
 
-  return { reset, reveal, destroy }
+  return { reset, destroy }
 }

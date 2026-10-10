@@ -51,26 +51,23 @@ function ScratchCardPage() {
   }
 
   return (
-    <main className="scratch-card-page no-rem">
+    <main className="scratch-card-page">
       <header className="scratch-card-header">
         <Link className="scratch-card-back" to="/">← 返回首页</Link>
         <span className="scratch-card-label">PIXI.JS / 01</span>
       </header>
 
-      <section className="scratch-card-content" aria-labelledby="scratch-card-title">
+      <section className="scratch-card-content" aria-label="刮刮卡">
         <p className="scratch-card-eyebrow">一张卡片，一点惊喜</p>
-        <h1 id="scratch-card-title">刮开，遇见一句诗。</h1>
-        <p className="scratch-card-description" id="scratch-card-instructions">
-          按住鼠标或用手指涂抹卡片，刮开 65% 后将自动揭晓。
-        </p>
 
         <div className="scratch-card-frame">
           <div
             className="scratch-card-canvas"
             ref={hostRef}
             role="img"
-            aria-label={completed ? '已揭晓的诗句卡片' : '等待刮开的圆形卡片'}
-            aria-describedby="scratch-card-instructions"
+            aria-label={completed
+              ? `已揭晓的诗句卡片：${SCRATCH_CARD_TEXT}`
+              : '等待刮开的圆形卡片'}
           />
           {status === 'loading' && (
             <p className="scratch-card-overlay" role="status">正在准备卡片…</p>
@@ -91,12 +88,6 @@ function ScratchCardPage() {
           <span>{percentage}%</span>
         </div>
 
-        <p className="scratch-card-result" role="status">
-          {completed
-            ? SCRATCH_CARD_TEXT
-            : '慢慢刮，藏着的诗句就会浮现。'}
-        </p>
-
         <div className="scratch-card-actions">
           <button
             className="scratch-card-button"
@@ -105,14 +96,6 @@ function ScratchCardPage() {
             onClick={() => sceneRef.current?.reset()}
           >
             再刮一次
-          </button>
-          <button
-            className="scratch-card-reveal"
-            type="button"
-            disabled={status !== 'ready' || completed}
-            onClick={() => sceneRef.current?.reveal()}
-          >
-            直接揭晓
           </button>
         </div>
       </section>
