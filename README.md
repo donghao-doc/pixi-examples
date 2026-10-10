@@ -28,3 +28,13 @@ pnpm preview
 - `src/App.tsx`：应用根组件，当前不渲染页面内容
 - `index.html`：HTML 入口
 - `vite.config.ts`：Vite 配置
+
+## 路径别名
+
+`@` 指向 `src` 目录，跨模块导入优先使用别名，同一模块内部可使用相对路径。
+
+```ts
+import App from '@/App'
+```
+
+别名同时配置在 `vite.config.ts` 和 `tsconfig.app.json` 中，修改映射时需保持两处一致。
