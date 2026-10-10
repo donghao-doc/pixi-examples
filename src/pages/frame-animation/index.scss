@@ -81,14 +81,14 @@
   top: 78%;
   left: 50%;
   width: 48%;
-  min-height: 44Px;
-  padding: 10Px 16Px;
+  min-height: 44px;
+  padding: 10px 16px;
   transform: translateX(-50%);
   border: 1px solid #fff8e2;
-  border-radius: 8Px;
+  border-radius: 8px;
   background: #173e32;
   color: #fffdf5;
-  font-size: 15Px;
+  font-size: 15px;
   cursor: pointer;
 
   &:hover:not(:disabled) {
@@ -130,6 +130,7 @@
   border-radius: 999px;
   background: #173e32;
   color: #fffdf5;
+  font-size: 14px;
   cursor: pointer;
 
   &:hover {
