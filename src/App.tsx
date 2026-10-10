@@ -1,8 +1,11 @@
+import { RouterProvider } from 'react-router/dom'
+import { router } from '@/router'
+
 /**
- * 应用根组件，保留空白入口供后续功能扩展
+ * 应用根组件，通过路由实例渲染当前页面
  */
 function App() {
-  return null
+  return <RouterProvider router={router} />
 }
 
 export default App
