@@ -50,11 +50,21 @@ import App from '@/App'
 | 路径 | 页面 |
 | --- | --- |
 | `/` | 首页 |
+| `/scratch-card` | 刮刮卡互动示例 |
+| `/frame-animation` | 许愿池序列帧动画示例 |
 | `*` | 404 页面，提供返回首页的链接 |
 
 新增页面时，在 `src/pages` 下创建页面目录，并在 `src/router/routes.ts` 中注册路径和组件。
 
 路由使用浏览器 History 模式。生产部署时，服务器需将页面路径回退到 `index.html`，以支持直接访问和刷新页面。
+
+### 序列帧动画
+
+`src/pages/frame-animation/scene.ts` 使用 Pixi.js 8 的 `Assets` 预加载图片，通过 `AnimatedSprite` 播放动画：许愿池 20 帧循环播放，旋转硬币 80 帧循环播放，投币 38 帧播放一次。点击旋转硬币或「投币许愿」按钮触发投币，播放期间忽略重复操作，完成后可再次播放。
+
+画布按 750 × 1334 的参考稿比例适配容器。页面提供加载进度及失败重试，离开页面时清理场景，后台标签页暂停动画。
+
+图片保存在 `public/images/frame-animation`，来源为参考 `FrameAnimation.vue` 使用的 `https://morefun-active.oss-cn-beijing.aliyuncs.com/farfetch/animation/` 下的 `pool`、`icon` 和 `coin` 序列帧，运行时从本地静态目录读取。
 
 ## 移动端适配与样式
 

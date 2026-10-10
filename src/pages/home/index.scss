@@ -11,3 +11,9 @@
   font-size: 12px;
   letter-spacing: 0.12em;
 }
+
+.home-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

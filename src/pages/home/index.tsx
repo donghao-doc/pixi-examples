@@ -8,7 +8,10 @@ function HomePage() {
   return (
     <main className="home-page">
       <p className="home-eyebrow">PIXI.JS / 互动实验</p>
-      <ExampleLink to="/scratch-card">体验刮刮卡</ExampleLink>
+      <nav className="home-examples" aria-label="Pixi.js 示例">
+        <ExampleLink to="/scratch-card">体验刮刮卡</ExampleLink>
+        <ExampleLink to="/frame-animation">体验序列帧动画</ExampleLink>
+      </nav>
     </main>
   )
 }

@@ -1,0 +1,149 @@
+.frame-animation-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 20px 40px;
+  background: #f7f5ef;
+  color: #173e32;
+}
+
+.frame-animation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.frame-animation-back {
+  padding: 8px 0;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b38144;
+    outline-offset: 4px;
+  }
+}
+
+.frame-animation-label {
+  color: #667168;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.frame-animation-content {
+  width: min(100%, 375Px);
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.frame-animation-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.frame-animation-description {
+  margin: 8px 0 20px;
+  color: #667168;
+  font-size: 13px;
+}
+
+.frame-animation-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dedfd4;
+  border-radius: 16px;
+  background: #d4d1cb;
+}
+
+.frame-animation-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 750 / 1334;
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.frame-animation-wish {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  width: 48%;
+  min-height: 44Px;
+  padding: 10Px 16Px;
+  transform: translateX(-50%);
+  border: 1px solid #fff8e2;
+  border-radius: 8Px;
+  background: #173e32;
+  color: #fffdf5;
+  font-size: 15Px;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: #245b46;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #b38144;
+    outline-offset: 4px;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+}
+
+.frame-animation-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #e9ede3;
+  font-size: 14px;
+
+  progress {
+    width: 70%;
+    height: 6px;
+    accent-color: #173e32;
+  }
+}
+
+.frame-animation-retry {
+  padding: 12px 24px;
+  border: 1px solid #173e32;
+  border-radius: 999px;
+  background: #173e32;
+  color: #fffdf5;
+  cursor: pointer;
+
+  &:hover {
+    background: #245b46;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #b38144;
+    outline-offset: 4px;
+  }
+}
+
+.frame-animation-hint {
+  margin: 16px 0 0;
+  color: #667168;
+  font-size: 12px;
+}
