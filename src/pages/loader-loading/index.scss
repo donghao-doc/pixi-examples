@@ -6,6 +6,8 @@
   padding: 24px 20px 40px;
   background: #f7f5ef;
   color: #173e32;
+  // Pixi 注册字体后整页自动使用，未就绪或未覆盖的字符使用系统衬线字体
+  font-family: 'ZCOOL XiaoWei', serif;
 }
 
 .loader-loading-header {
@@ -111,8 +113,6 @@
 .loader-loading-status {
   margin: 0;
   color: #173e32;
-  // Pixi 加载成功后注册字体，未就绪或未覆盖的字符使用系统衬线字体
-  font-family: 'ZCOOL XiaoWei', serif;
 }
 
 .loader-loading-result {
@@ -135,6 +135,7 @@
   border-radius: 8px;
   background: #173e32;
   color: #fffdf5;
+  font-family: inherit;
   font-size: 14px;
   text-decoration: none;
   cursor: pointer;
