@@ -1,11 +1,9 @@
 import type { RouteObject } from 'react-router'
 import HomePage from '@/pages/home'
 import NotFoundPage from '@/pages/not-found'
-import ScratchCardPage from '@/pages/scratch-card'
-import FrameAnimationPage from '@/pages/frame-animation'
-import LoaderLoadingPage from '@/pages/loader-loading'
+import { createLazyRoute } from './lazy-route'
 
-/** 应用路由表，集中维护页面路径及对应组件 */
+/** 应用路由表，首页和兜底页面直接加载，示例页面按访问需求加载 */
 export const routes: RouteObject[] = [
   {
     path: '/',
@@ -13,15 +11,15 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/scratch-card',
-    Component: ScratchCardPage,
+    lazy: createLazyRoute(() => import('@/pages/scratch-card')),
   },
   {
     path: '/frame-animation',
-    Component: FrameAnimationPage,
+    lazy: createLazyRoute(() => import('@/pages/frame-animation')),
   },
   {
     path: '/loader-loading',
-    Component: LoaderLoadingPage,
+    lazy: createLazyRoute(() => import('@/pages/loader-loading')),
   },
   {
     path: '*',
