@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  // 覆盖 amfe-flexible 写入的行内字号，统一通过 rem 适配正文
+  font-size: 16px !important;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
