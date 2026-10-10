@@ -1,0 +1,46 @@
+.route-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+  background: transparent;
+  cursor: wait;
+}
+
+.route-loading-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgb(23 32 29 / 88%);
+  color: #fff;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 16%);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.route-loading-spinner {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgb(255 255 255 / 30%);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: route-loading-spin 0.8s linear infinite;
+}
+
+@keyframes route-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-loading-spinner {
+    animation: none;
+  }
+}

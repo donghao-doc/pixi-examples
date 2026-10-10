@@ -2,10 +2,10 @@ import { RouterProvider } from 'react-router/dom'
 import { router } from '@/router'
 
 /**
- * 应用根组件，通过路由实例渲染当前页面
+ * 同步更新路由状态，由路由布局保留上一页并展示加载提示
  */
 function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} useTransitions={false} />
 }
 
 export default App
