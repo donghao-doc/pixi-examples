@@ -62,7 +62,6 @@ function FrameAnimationPage() {
 
       <section className="frame-animation-content" aria-label="序列帧动画">
         <h1 className="frame-animation-title">许愿池</h1>
-        <p className="frame-animation-description">投下一枚硬币，许下一个心愿</p>
 
         <div className="frame-animation-frame">
           <div
