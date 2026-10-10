@@ -1,11 +1,12 @@
 import { AnimatedSprite, Application, Assets } from 'pixi.js'
 import type { Texture } from 'pixi.js'
+import { FRAME_ANIMATION_ASSETS } from '@/assets/frame-animation'
 
 const STAGE_WIDTH = 750
 const STAGE_HEIGHT = 1334
-const POOL_FRAMES = 20
-const ICON_FRAMES = 80
-const COIN_FRAMES = 38
+const POOL_FRAMES = FRAME_ANIMATION_ASSETS.pool.length
+const ICON_FRAMES = FRAME_ANIMATION_ASSETS.icon.length
+const COIN_FRAMES = FRAME_ANIMATION_ASSETS.coin.length
 const TOTAL_FRAMES = POOL_FRAMES + ICON_FRAMES + COIN_FRAMES
 
 /** 序列帧场景的挂载位置、取消信号及页面状态通知 */
@@ -26,13 +27,6 @@ export interface FrameAnimationScene {
   play: () => void
   /** 停止动画并释放画布、观察器及场景资源 */
   destroy: () => void
-}
-
-/** 按数字顺序生成本地序列帧地址，兼容 Vite 的部署基础路径 */
-function createFrameUrls(folder: string, count: number, extension: string) {
-  return Array.from({ length: count }, (_, index) => (
-    `${import.meta.env.BASE_URL}images/frame-animation/${folder}/${folder}${index + 1}.${extension}`
-  ))
 }
 
 /** 使用独立的应用时钟驱动动画，避免页面卸载后共享时钟继续运行 */
@@ -56,9 +50,9 @@ export async function createFrameAnimationScene({
   onPlayingChange,
 }: SceneOptions): Promise<FrameAnimationScene | undefined> {
   const urls = [
-    ...createFrameUrls('pool', POOL_FRAMES, 'jpg'),
-    ...createFrameUrls('icon', ICON_FRAMES, 'png'),
-    ...createFrameUrls('coin', COIN_FRAMES, 'png'),
+    ...FRAME_ANIMATION_ASSETS.pool,
+    ...FRAME_ANIMATION_ASSETS.icon,
+    ...FRAME_ANIMATION_ASSETS.coin,
   ]
   const textures: Texture[] = []
   let loaded = 0

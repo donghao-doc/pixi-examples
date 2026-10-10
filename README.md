@@ -52,6 +52,7 @@ import App from '@/App'
 | `/` | 首页 |
 | `/scratch-card` | 刮刮卡互动示例 |
 | `/frame-animation` | 许愿池序列帧动画示例 |
+| `/loader-loading` | Pixi 资源加载进度示例 |
 | `*` | 404 页面，提供返回首页的链接 |
 
 新增页面时，在 `src/pages` 下创建页面目录，并在 `src/router/routes.ts` 中注册路径和组件。
@@ -65,6 +66,12 @@ import App from '@/App'
 画布按 750 × 1334 的参考稿比例适配容器。页面提供加载进度及失败重试，离开页面时清理场景，后台标签页暂停动画。
 
 图片保存在 `public/images/frame-animation`，来源为参考 `FrameAnimation.vue` 使用的 `https://morefun-active.oss-cn-beijing.aliyuncs.com/farfetch/animation/` 下的 `pool`、`icon` 和 `coin` 序列帧，运行时从本地静态目录读取。
+
+### 资源加载
+
+`src/pages/loader-loading` 参考 `LoaderLoading.vue`，使用 Pixi.js 8 的 `Assets.load` 回调展示真实加载进度、百分比和已加载资源数量。资源清单由 `src/assets/frame-animation.ts` 统一维护，与序列帧动画共用现有的 138 张本地图片，不额外加载参考页仅用于文字样式的远程字体。
+
+每批加载 8 个资源，进度按加载完成的文件数统计，不代表下载字节比例。全部完成后可进入序列帧动画页；失败时保留当前进度并提供重试。离开页面后忽略进行中的回调并停止后续批次，已加载资源保留在 Pixi 共享缓存中，重试或再次进入时可能很快完成。
 
 ## 移动端适配与样式
 

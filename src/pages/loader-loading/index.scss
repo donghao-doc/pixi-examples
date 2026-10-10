@@ -1,0 +1,148 @@
+.loader-loading-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 20px 40px;
+  background: #f7f5ef;
+  color: #173e32;
+}
+
+.loader-loading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.loader-loading-back {
+  padding: 8px 0;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b38144;
+    outline-offset: 4px;
+  }
+}
+
+.loader-loading-label {
+  color: #667168;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.loader-loading-content {
+  width: min(80%, 480Px);
+  margin: auto;
+  padding: 56px 0;
+}
+
+.loader-loading-eyebrow {
+  margin: 0 0 12px;
+  color: #667168;
+  font-size: 12px;
+}
+
+.loader-loading-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.loader-loading-percentage {
+  margin: 32px 0 16px;
+  font-size: 72px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+
+  span {
+    margin-left: 6px;
+    color: #667168;
+    font-size: 24px;
+  }
+}
+
+.loader-loading-progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 5px;
+  appearance: none;
+  background: #dedfd4;
+  color: #173e32;
+
+  &::-webkit-progress-bar {
+    border-radius: 5px;
+    background: #dedfd4;
+  }
+
+  &::-webkit-progress-value {
+    border-radius: 5px;
+    background: #173e32;
+  }
+
+  &::-moz-progress-bar {
+    border-radius: 5px;
+    background: #173e32;
+  }
+}
+
+.loader-loading-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  color: #667168;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.loader-loading-status {
+  margin: 0;
+  color: #173e32;
+}
+
+.loader-loading-result {
+  min-height: 100px;
+  margin-top: 28px;
+  font-size: 13px;
+
+  p {
+    margin: 0 0 16px;
+  }
+}
+
+.loader-loading-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #173e32;
+  border-radius: 8px;
+  background: #173e32;
+  color: #fffdf5;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #245b46;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #b38144;
+    outline-offset: 4px;
+  }
+}

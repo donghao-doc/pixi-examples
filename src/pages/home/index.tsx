@@ -11,6 +11,7 @@ function HomePage() {
       <nav className="home-examples" aria-label="Pixi.js 示例">
         <ExampleLink to="/scratch-card">刮刮卡</ExampleLink>
         <ExampleLink to="/frame-animation">序列帧动画</ExampleLink>
+        <ExampleLink to="/loader-loading">资源加载</ExampleLink>
       </nav>
     </main>
   )
