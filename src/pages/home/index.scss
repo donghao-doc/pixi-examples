@@ -11,27 +11,3 @@
   font-size: 12px;
   letter-spacing: 0.12em;
 }
-
-.home-example-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(100%, 320px);
-  padding: 20px 24px;
-  border: 1px solid #173e32;
-  border-radius: 12px;
-  background: #173e32;
-  color: #fffdf5;
-  font-size: 18px;
-  text-decoration: none;
-  transition: background 160ms ease;
-
-  &:hover {
-    background: #245b46;
-  }
-
-  &:focus-visible {
-    outline: 3px solid #b38144;
-    outline-offset: 4px;
-  }
-}
